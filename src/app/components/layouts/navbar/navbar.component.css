@@ -1,0 +1,10 @@
+nav .nav-link {
+    color: #2e2e2e;
+    font-weight:500; 
+    font-size: 1em !important;
+}
+
+nav .nav-link:hover {
+    background-color: #ffffff3f;
+    color: #444242;
+}

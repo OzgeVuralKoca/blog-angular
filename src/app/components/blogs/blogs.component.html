@@ -1,0 +1,35 @@
+<div id="special-card" class="section section-home text-center">
+    <div class="container mt-5">
+        <div class="row">
+            <div class="offset-2 col-8 card bg-dark text-white pt-4">
+                <h3>BLOGS</h3>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="section bg-dark">
+    <div class="container">
+        <div class="row">
+            <div class="offset-1 col-10">
+                <!-- blog cards -->
+                <button routerLink="/blogs/add" *ngIf="_auth.isAdmin" class="btn btn-lg btn-info mb-4 w-100">Add New Blog</button>
+                <div class="blogcards">
+                    <div *ngFor="let blog of blogs" class="card p-5">
+                        <h4 class="card-title">{{blog.title}}</h4>
+                        <h5 class="card-text" [innerHTML]="blog.content">
+                        </h5>
+                        <div class="card-footer text-muted mb-3">
+                            {{blog.createdDate | date: 'dd.MM.yyyy HH:mm'}}
+                        </div>
+                        <button routerLink="/blogs/{{blog.id}}" class="btn btn-warning btn">
+                        <i class="fa fa-eye"></i>
+                        </button>
+                        <button (click)="delete(blog.id)" *ngIf="_auth.isAdmin" class="btn btn-danger">
+                        <i class="fa fa-trash"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

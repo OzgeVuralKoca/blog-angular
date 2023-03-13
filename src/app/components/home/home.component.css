@@ -1,0 +1,29 @@
+#special-card{
+    background-color: none;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+nav .nav-link {
+    color: #2e2e2e;
+    font-weight:500; 
+    font-size: 1em !important;
+    border-bottom: 1px solid #a79045;
+    list-style-type: none;
+}
+
+nav .nav-link:hover {
+    background-color: #ffffff3f;
+    color: #444242;
+}
+
+.card-text {
+    width: 95%;
+    display: block;
+    white-space: nowrap;
+    overflow: hidden; /* taşanları gizle */
+    text-overflow: ellipsis !important; /* eğer uzunsa üç nokta koy */
+    padding: 0 20px;
+    height: 50px;
+}

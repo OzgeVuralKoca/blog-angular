@@ -1,0 +1,58 @@
+<div class="page-header">
+    <div class="page-header-image" style="background-image:url(../assets/img/header.jpg)"></div>
+    <div class="content">
+        <div class="container">
+            <div class="col-md-4 ml-auto mr-auto bg-warning">
+                <div class="card card-login card-plain">
+                    <!-- Form Start -->
+                    <form (ngSubmit)="_auth.login(loginModel)" class="form" method="" action="">
+                        <div class="card-header text-center">
+                            <div class="logo-container">
+
+                            </div>
+                        </div>
+                        <div class="card-body mt-4">
+                            <div class="input-group no-border input-lg">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="fa-solid fa-envelope"></i>
+                                    </span>
+                                </div>
+                                <input
+                                  [ngClass]="checkFormIsValid() ? 'is-invalid' : 'is-valid'"
+                                  [(ngModel)]="loginModel.email"
+                                  [ngModelOptions]="{standalone:true}"
+                                  type="email"
+                                  class="form-control"
+                                  placeholder="Email">
+                            </div>
+                            <div class="input-group no-border input-lg">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <i class="fa-solid fa-unlock"></i>
+                                    </span>
+                                </div>
+                                <input
+                                  [ngClass]="checkFormIsValid() ? 'is-invalid' : 'is-valid'"
+                                  [(ngModel)]="loginModel.password"
+                                  [ngModelOptions]="{standalone:true}"
+                                  type="password"
+                                  placeholder="Password"
+                                  class="form-control">
+                            </div>
+                        </div>
+                        <div class="card-footer text-center">
+                            <button type="submit" [disabled]="checkFormIsValid()"
+                                class="btn btn-success btn-round btn-lg btn-block mb-4">
+                                Sign In
+                            </button>
+                            <h6>
+                                <a routerLink="/register" class="link text-dark">Create Account</a>
+                            </h6>
+                        </div>
+                    </form>
+                    <!-- Form End -->
+                </div>
+            </div>
+        </div>
+    </div>

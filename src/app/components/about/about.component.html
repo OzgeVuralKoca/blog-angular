@@ -1,0 +1,23 @@
+<div class="main">
+    <!-- Welcome Message -->
+    <div id="special-card" class="section section-home text-center" style="background-image:url(../assets/img/bg5.jpg)">
+        <div class="container mt-5">
+            <div class="row">
+                <div class="offset-2 col-8 card bg-dark text-white p-3">
+                    <h3>ABOUT ME</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="section bg-dark">
+        <div class="container">
+            <div class="row">
+                <div class="card p-5">
+                    <h4 class="card-title" [innerHTML]="about.title"></h4>
+                    <h5 class="card-text" [innerHTML]="about.content"></h5>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
