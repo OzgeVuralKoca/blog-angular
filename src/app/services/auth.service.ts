@@ -1,5 +1,6 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { LoginModel } from '../models/login.model';
@@ -29,7 +30,14 @@ export class AuthService {
       this.isLogin = false;
   }
 
-  login(model: LoginModel) {
+  login(form: NgForm) {
+    if(!form.valid)
+      return
+
+    let model = new LoginModel();
+    model.email = form.controls["email"].value;
+    model.password = form.controls["password"].value;
+
     this._http.get<UserModel[]>(`${this.apiUrl}?email=${model.email}&password=${model.password}`).subscribe({
       next: (res) => {
         if (res.length > 0) {
@@ -55,7 +63,17 @@ export class AuthService {
     })
   }
 
-  register(model: RegisterModel) {
+  register(form: NgForm) {
+    if(!form.valid)
+      return
+
+    let model = new RegisterModel();
+    model.email = form.controls["email"].value;
+    model.name = form.controls["name"].value;
+    model.userName = form.controls["userName"].value;
+    model.password = form.controls["password"].value;
+    model.isAdmin = false;
+
     this._http.get<UserModel[]>(`${this.apiUrl}?email=${model.email}`).subscribe(res => {
       if (res.length == 0) {
         this._http.get<UserModel[]>(`${this.apiUrl}?userName=${model.userName}`).subscribe(res => {

@@ -5,12 +5,7 @@
             <div class="col-md-4 ml-auto mr-auto bg-warning">
                 <div class="card card-login card-plain">
                     <!-- Form Start -->
-                    <form (ngSubmit)="_auth.register(register)" class="form" method="" action="">
-                        <div class="card-header text-center">
-                            <div class="logo-container">
-
-                            </div>
-                        </div>
+                    <form #registerForm="ngForm" (ngSubmit)="_auth.register(registerForm)" class="form">
                         <div class="card-body mt-4">
                             <p>Enter the information to register!</p>
                             <div class="input-group no-border input-lg">
@@ -19,9 +14,16 @@
                                         <i class="fa-solid fa-user"></i>
                                     </span>
                                 </div>
-                                <input [ngClass]="checkFormIsValid() ? 'is-invalid' : 'is-valid'"
-                                    [(ngModel)]="register.name" [ngModelOptions]="{standalone:true}" type="text"
-                                    class="form-control" placeholder="Name">
+                                <input
+                                  [appValid]="name.validity.valid"
+                                  ngModel
+                                  #name
+                                  name="name"
+                                  required
+                                  minlength="3"
+                                  type="text"
+                                  class="form-control"
+                                  placeholder="Name">
                             </div>
                             <div class="input-group no-border input-lg">
                                 <div class="input-group-prepend">
@@ -29,9 +31,16 @@
                                         <i class="fa-solid fa-user"></i>
                                     </span>
                                 </div>
-                                <input [ngClass]="checkFormIsValid() ? 'is-invalid' : 'is-valid'"
-                                    [(ngModel)]="register.userName" [ngModelOptions]="{standalone:true}" type="text"
-                                    class="form-control" placeholder="User Name">
+                                <input
+                                  [appValid]="userName.validity.valid"
+                                  ngModel
+                                  #userName
+                                  name="userName"
+                                  required
+                                  minlength="3"
+                                  type="text"
+                                  class="form-control"
+                                  placeholder="User Name">
                             </div>
                             <div class="input-group no-border input-lg">
                                 <div class="input-group-prepend">
@@ -39,9 +48,15 @@
                                         <i class="fa-solid fa-envelope"></i>
                                     </span>
                                 </div>
-                                <input [ngClass]="checkFormIsValid() ? 'is-invalid' : 'is-valid'"
-                                    [(ngModel)]="register.email" [ngModelOptions]="{standalone:true}" type="email"
-                                    class="form-control" placeholder="Email">
+                                <input
+                                  [appValid]="email.validity.valid"
+                                  ngModel
+                                  #email
+                                  name="email"
+                                  required
+                                  type="email"
+                                  class="form-control"
+                                  placeholder="Email">
                             </div>
                             <div class="input-group no-border input-lg">
                                 <div class="input-group-prepend">
@@ -49,13 +64,20 @@
                                         <i class="fa-solid fa-unlock"></i>
                                     </span>
                                 </div>
-                                <input [ngClass]="checkFormIsValid() ? 'is-invalid' : 'is-valid'"
-                                    [(ngModel)]="register.password" [ngModelOptions]="{standalone:true}"
-                                    type="password" placeholder="Password" class="form-control">
+                                <input
+                                  [appValid]="password.validity.valid"
+                                  ngModel
+                                  #password
+                                  name="password"
+                                  required
+                                  minlength="3"
+                                  type="password"
+                                  placeholder="Password"
+                                  class="form-control">
                             </div>
                         </div>
                         <div class="card-footer text-center">
-                            <button type="submit" [disabled]="checkFormIsValid()"
+                            <button type="submit" [disabled]="!registerForm.valid"
                                 class="btn btn-success btn-round btn-lg btn-block mb-4">
                                 Create Acount
                             </button>

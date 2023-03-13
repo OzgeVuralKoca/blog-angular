@@ -5,12 +5,7 @@
             <div class="col-md-4 ml-auto mr-auto bg-warning">
                 <div class="card card-login card-plain">
                     <!-- Form Start -->
-                    <form (ngSubmit)="_auth.login(loginModel)" class="form" method="" action="">
-                        <div class="card-header text-center">
-                            <div class="logo-container">
-
-                            </div>
-                        </div>
+                    <form #loginForm="ngForm" (ngSubmit)="_auth.login(loginForm)" class="form" method="" action="">
                         <div class="card-body mt-4">
                             <div class="input-group no-border input-lg">
                                 <div class="input-group-prepend">
@@ -19,12 +14,14 @@
                                     </span>
                                 </div>
                                 <input
-                                  [ngClass]="checkFormIsValid() ? 'is-invalid' : 'is-valid'"
-                                  [(ngModel)]="loginModel.email"
-                                  [ngModelOptions]="{standalone:true}"
-                                  type="email"
+                                  [appValid]="email.validity.valid"
+                                  ngModel
+                                  name="email"
                                   class="form-control"
-                                  placeholder="Email">
+                                  required
+                                  minlength="3"
+                                  #email
+                                  placeholder="Email or Username">
                             </div>
                             <div class="input-group no-border input-lg">
                                 <div class="input-group-prepend">
@@ -33,16 +30,19 @@
                                     </span>
                                 </div>
                                 <input
-                                  [ngClass]="checkFormIsValid() ? 'is-invalid' : 'is-valid'"
-                                  [(ngModel)]="loginModel.password"
-                                  [ngModelOptions]="{standalone:true}"
+                                  [appValid]="password.validity.valid"
+                                  ngModel
                                   type="password"
+                                  name="password"
+                                  #password
+                                  required
+                                  minlength="3"
                                   placeholder="Password"
                                   class="form-control">
                             </div>
                         </div>
                         <div class="card-footer text-center">
-                            <button type="submit" [disabled]="checkFormIsValid()"
+                            <button type="submit" [disabled]="!loginForm.valid"
                                 class="btn btn-success btn-round btn-lg btn-block mb-4">
                                 Sign In
                             </button>

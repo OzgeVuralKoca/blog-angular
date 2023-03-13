@@ -1,9 +1,9 @@
 <div class="main">
     <!-- Welcome Message -->
-    <div id="special-card" class="section section-home text-center" style="background-image:url(../assets/img/bg5.jpg)">
+    <div id="special-card" class="section section-home text-center" style="background-image:url(../assets/img/bg4.jpg)">
         <div class="container mt-5">
             <div class="row">
-                <div class="offset-2 col-8 card bg-dark text-white p-3">
+                <div class="bg-card offset-2 col-8 card text-white p-3">
                     <h3>{{site.pageHeaderTitle}}</h3>
                     <h4>{{site.pageHeaderContent}}</h4>
                     <h5>{{site.pageHeaderName}}</h5>
@@ -21,7 +21,7 @@
     </div>
 
     <!-- Carousel Start -->
-    <div class="section bg-dark" id="carousel">
+    <!-- <div class="section bg-dark" id="carousel">
         <div class="container ">
             <div class="row justify-content-center">
                 <div class="col-lg-8 col-md-12">
@@ -63,32 +63,19 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- End Carousel -->
 
-    <div class="section bg-dark">
+    <div class="section bg-warning">
         <div class="container">
-            <div class="row">
-                <!-- sidebar -->
-                <div class="col-3">
-                    <nav class="nav bg-warning flex-column">
-                        <a class="nav-link active" href="#">Active</a>
-                        <a class="nav-link" href="#">Link</a>
-                        <a class="nav-link" href="#">Link</a>
-                    </nav>
-                    <div>
-                        Etiketler
-                    </div>
-                </div>
+            <div class="row d-flex justify-content-center">
                 <!-- blog cards -->
-                <div class="col-9 blogcards">
-                    <div *ngFor="let blog of blogs" class="card text-center">
-                        <h4 class="card-title">{{blog.title}}</h4>
-                        <h5 class="card-text" [innerHTML]="blog.content"></h5>
-                        <a routerLink="/blogs/{{blog.id}}" class="btn btn-warning">Go to Blog</a>
-                        <div class="card-footer text-muted mb-3">
-                            {{blog.createdDate | date: 'dd.MM.yyyy HH:mm'}}
-                        </div>
+                <div *ngFor="let blog of blogs" class="card col-md-3 mx-4">
+                    <h4 class="card-title">{{blog.title}}</h4>
+                    <h5 class="card-text" [innerHTML]="blog.content"></h5>
+                    <a routerLink="/blogs/{{blog.id}}" class="btn btn-warning">Go to Blog</a>
+                    <div class="card-footer text-muted mb-3">
+                        {{blog.createdDate | date: 'dd.MM.yyyy HH:mm'}}
                     </div>
                 </div>
             </div>

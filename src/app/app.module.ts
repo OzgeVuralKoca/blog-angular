@@ -22,6 +22,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { AboutComponent } from './components/about/about.component';
+import { ValidDirective } from './directives/valid.directive';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { AboutComponent } from './components/about/about.component';
     BlogDetailsComponent,
     BlogAddComponent,
     AboutComponent,
+    ValidDirective,
   ],
   imports: [
     BrowserModule,

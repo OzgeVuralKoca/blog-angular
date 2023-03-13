@@ -1,11 +1,3 @@
-#special-card{
-    background-color: none;
-    background-image: url(https://cdn.pixabay.com/photo/2015/05/31/11/25/girl-791177_960_720.jpg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
 .card-text {
     overflow: hidden; /* taşanları gizle */
     white-space: nowrap; /* alt satıra hiç inme */
